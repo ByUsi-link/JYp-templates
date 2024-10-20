@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>管理后台</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 增加小屏幕适配的样式 */
+        .list-group-item {
+            flex-wrap: wrap; /* 允许在小屏幕上换行 */
+        }
+        .list-group-item div {
+            margin-top: 10px; /* 在小屏幕上增加间距 */
+        }
+    </style>
+</head>
+<body class="container">
+    <h1 class="mt-4 mb-4 text-center">管理后台</h1>
+    <div class="list-group">
+        {% for file in files %}
+        <div class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+            <span class="mb-2 mb-md-0">{{ file }}</span>
+            <div class="d-flex gap-2">
+                <a href="/view/{{ file }}" class="btn btn-info btn-sm" target="_blank">预览</a>
+                <a href="/file/{{ file }}" class="btn btn-primary btn-sm">下载</a>
+                <form action="/admin/delete/{{ file }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('确认删除该文件？')">删除</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
