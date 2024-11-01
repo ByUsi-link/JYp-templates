@@ -51,8 +51,8 @@
 <body>
     <h1>图片预览 - {{ filename }}</h1>
     <div id="image-container">
-        <img id="image-preview" src="/file/id/{{ file.id }}" alt="{{ filename }}">
-        <p class="download-button"><a href="/file/id/{{ file.id }}" class="btn btn-primary" download>点击下载文件</a></p>
+        <img id="image-preview" src="/file/{{ filename }}" alt="{{ filename }}">
+        <p class="download-button"><a href="/file/{{ filename }}" class="btn btn-primary" download>点击下载文件</a></p>
     </div>
 
     <!-- Viewer.js JS -->

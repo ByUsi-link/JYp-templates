@@ -43,7 +43,7 @@
 
     <!-- APlayer 容器 -->
     <div id="aplayer"></div>
-    <p class="download-button"><a href="/file/id/{{ file.id }}" class="btn btn-primary" download>点击下载文件</a></p>
+    <p class="download-button"><a href="/file/{{ filename }}" class="btn btn-primary" download>点击下载文件</a></p>
 
     <!-- APlayer JS 使用BootCDN -->
     <script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
@@ -54,7 +54,7 @@
             audio: [{
                 name: '{{ filename }}',
                 artist: '音频原作者',
-                url: '/file/id/{{ file.id }}',
+                url: '/file/{{ filename }}',
                 cover: '/file/HeaderCrop.png.jpg',  // 可以替换为实际封面图片
             }],
             preload: 'auto',

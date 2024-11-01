@@ -99,14 +99,14 @@
     <!-- HTML5 <video> 播放器 -->
     <div class="video-container">
         <video id="my-video" controls>
-            <source src="/file/id/{{ file.id }}" type="video/mp4">
+            <source src="/file/{{ filename }}" type="video/mp4">
             <p>您的浏览器不支持视频标签。</p>
         </video>
     </div>
 
     <!-- 设置表单 -->
     <div class="settings">
-        <p><a href="/file/id/{{ file.id }}" class="btn btn-primary" download>点击下载文件</a></p>
+        <p><a href="/file/{{ filename }}" class="btn btn-primary" download>点击下载文件</a></p>
         <h2>播放器设置</h2>
         <div class="settings-group">
             <label>
