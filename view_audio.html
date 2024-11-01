@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>音频预览 - {{ filename }}</title>
+    
+    <!-- APlayer CSS 使用BootCDN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+    
+    <!-- 引入阿里云CDN的Bootstrap -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            text-align: center;
+            margin: 2em;
+            font-family: 'Segoe UI', sans-serif; /* 统一字体 */
+            background-color: #f4f7f6; /* 统一背景色 */
+        }
+        h1 {
+            max-width: 90%; /* 优化小屏幕显示 */
+            margin: 0 auto; /* 水平居中 */
+            font-size: 2rem; /* 设置字体大小 */
+            color: #333; /* 字体颜色 */
+            margin-bottom: 1em; /* 底部边距 */
+        }
+        #aplayer {
+            max-width: 600px; /* 设置最大宽度以避免溢出 */
+            margin: 0 auto; /* 水平居中 */
+        }
+        .download-button {
+            margin-top: 1em; /* 顶部边距以防止与播放器重叠 */
+        }
+        
+        h1, h2 {
+            word-wrap: break-word; /* 处理长单词或标题的换行 */
+        }
+    </style>
+</head>
+<body>
+    <h1>音频预览 - {{ filename }}</h1>
+
+    <!-- APlayer 容器 -->
+    <div id="aplayer"></div>
+    <p class="download-button"><a href="/file/id/{{ file.id }}" class="btn btn-primary" download>点击下载文件</a></p>
+
+    <!-- APlayer JS 使用BootCDN -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+    <script>
+        // 初始化 APlayer
+        const ap = new APlayer({
+            container: document.getElementById('aplayer'),
+            audio: [{
+                name: '{{ filename }}',
+                artist: '音频原作者',
+                url: '/file/id/{{ file.id }}',
+                cover: '/file/HeaderCrop.png.jpg',  // 可以替换为实际封面图片
+            }],
+            preload: 'auto',
+            volume: 0.7,
+            listFolded: true,
+            listMaxHeight: 90
+        });
+    </script>
+</body>
+</html>
