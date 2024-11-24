@@ -132,8 +132,7 @@
             <h2>已上传文件</h2>
             <ul id="fileList">
                 {% for file in files %}
-                    <!-- <li><a href="/view/{{ file }}">在线预览文件 - {{ file }}</a></li> -->
-                    <li><a href="/view/id/{{file.id}}">在线预览文件 - {{ file.filename }}<br>文件ID: {{ file.id }}</a></li>
+                    <li><a href="/view/id/{{file.id}}">在线预览文件 - {{ file.filename }}</a></li>
                 {% endfor %}
             </ul>
         </div>
